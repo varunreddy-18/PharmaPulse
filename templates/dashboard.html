@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Med Agency Dashboard</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 20px;
+      background-color: #f4f1ee;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-family: 'Times New Roman', Times, serif;
+      letter-spacing: 2px;
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .dashboard-flex {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .card {
+      background-color: #fffdfa;
+      padding: 24px 28px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+      border: 1px solid #e0d6c3;
+      min-width: 320px;
+      max-width: 400px;
+      font-family: 'Georgia', serif;
+    }
+
+    button {
+      padding: 7px 16px;
+      background-color: #bfa46d;
+      border: none;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+      margin-left: 8px;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background-color: #a68b5b;
+    }
+
+    input {
+      padding: 7px;
+      border-radius: 4px;
+      border: 1px solid #bfa46d;
+      font-family: 'Georgia', serif;
+      font-size: 1em;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .card h3, .card h4 {
+      color: #7c5e2c;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🩺 PharmaPulse</h1>
+
+  <!-- 🔎 Pharmacy Search Bar -->
+  <div style="display: flex; justify-content: center; margin-bottom: 32px;">
+    <div class="card" style="max-width: 500px; width: 100%; display: flex; align-items: center; gap: 12px;">
+      <input type="number" id="pharmacyIdInput" placeholder="Enter Pharmacy ID">
+      <span id="pharmacyNameLabel" style="font-weight:bold;"></span>
+      <button onclick="fetchPharmacyData()">Search</button>
+    </div>
+  </div>
+
+  <!-- 🔎 Pharmacy Info and Top Products Side by Side -->
+  <div class="section" id="infoSection" style="display:none;">
+    <div class="dashboard-flex">
+      <div class="card">
+        <div id="pharmacySummary" style="margin-top:0;"></div>
+      </div>
+      <div class="card">
+        <div id="topProducts"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📊 Monthly Sales Bar Chart for Pharmacy -->
+  <div class="section" id="salesSection" style="max-width: 900px; margin: 0 auto; display:none;">
+    <div class="card">
+      <h3 style="color:#7c5e2c;">Monthly Sales</h3>
+      <canvas id="pharmacyMonthlyChart" width="700" height="220"></canvas>
+    </div>
+  </div>
+
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
