@@ -5,7 +5,7 @@ db_config = {
     'host': 'localhost',
     'user': 'root',
     'password': 'Varun@9154',
-    'database': 'med_agency'
+    'database': 'pharmapulse'
 }
 
 def get_connection():
